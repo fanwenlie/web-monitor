@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>前端监控</title>
+</head>
+<body>
+  <div class="container">
+    <!-- js错误示例 -->
+    <div class="content">
+      <!-- <input 
+        type="button" 
+        value="点击抛出错误" 
+        onclick="errorClick()"
+      >
+      <input 
+        type="button" 
+        value="点击抛出Promsie错误" 
+        onclick="errorPromiseClick()"
+      >
+
+      <script>
+        function errorClick(e) {
+          window.someVar.error = '1111'
+        }
+
+        function errorPromiseClick() {
+          new Promise((resolve, reject) => {
+            window.someVar.error = '1111'
+            // reject({a: 1})
+          })
+        }
+      </script>
+      <script src="somejs.js"></script> -->
+    </div>
+
+    <!-- 接口错误示例 -->
+    <div class="content">
+      <input 
+        type="button" 
+        value="ajax成功请求" 
+        onclick="sendSuccess()"
+      >
+      <input 
+        type="button" 
+        value="ajax失败请求" 
+        onclick="sendFail()"
+      >
+      <script>
+        function sendSuccess() {
+          const xhr = new XMLHttpRequest()
+          xhr.open('GET', '/success', true)
+          xhr.responseType = 'json'
+          xhr.onload = function() {
+            console.log(xhr.response)
+          }
+          xhr.onerror = function() {
+            console.log(err)
+          }
+          xhr.send()
+        }
+        function sendFail() {
+          const xhr = new XMLHttpRequest()
+          xhr.open('POST', '/error', true)
+          xhr.responseType = 'json'
+          xhr.onload = function() {
+            console.log(xhr.response)
+          }
+          xhr.onerror = function(err) {
+            console.log(err)
+          }
+          xhr.send('name=fwl&age=27')
+        }
+      </script>
+    </div>
+  </div>
+</body>
+</html>

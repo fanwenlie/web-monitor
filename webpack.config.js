@@ -9,14 +9,34 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'monitor.js'
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
-  },
   plugins: [
     new HtmlWebpackPlugin({
       title: '前端监控',
-      template: './src/index.html',
+      template: './public/index.html',
       inject: 'head',
     })
   ],
+  devServer: {
+    contentBase: path.resolve(__dirname, 'dist'),
+    port: 8080,
+    useLocalIp: false,
+    hot: true,
+    clientLogLevel: 'error',
+    overlay: {
+      warnings: true,
+      errors: true
+    },
+    stats: {
+      modules: false,
+      children: false,
+    },
+    before(router) {
+      router.get('/success', function (req, res) {
+        res.json({ id: 1 })
+      })
+      router.post('/error', function (req, res) {
+        res.sendStatus(500)
+      })
+    }
+  },
 }
