@@ -8,7 +8,12 @@ export default function injectXHR() {
 
   let oldOpen = oldXHR.prototype.open
   oldXHR.prototype.open = function (method, url, async) {
-    if (tracker.url !== url) {
+    // 因为数据上报也是采用ajax，数据上报不需要监控，不屏蔽会导致不断循环上报数据，造成死循环
+    // 开发环境webpack用到了sockjs，也需要屏蔽
+    if (
+      tracker.url !== url &&
+      !url.match(/sockjs/)
+    ) {
       this.logData = {
         method,
         url,
