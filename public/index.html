@@ -6,6 +6,7 @@
   <title>前端监控</title>
 </head>
 <body>
+  <div id="testFMP" style="width: 500px; height: 500px; background-color: aliceblue;">testFMP</div>
   <div class="container">
     <!-- js错误示例 -->
     <div class="content">
@@ -75,5 +76,14 @@
       </script>
     </div>
   </div>
+  <script>
+    // 测试timing FMP
+    setTimeout(() => {
+      let h1 = document.createElement('h1')
+      h1.innerHTML = '有意义的内容'
+      h1.setAttribute('elementtiming', true)
+      document.getElementById('testFMP').appendChild(h1)
+    }, 2000);
+  </script>
 </body>
 </html>

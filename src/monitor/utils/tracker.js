@@ -8,13 +8,12 @@ const host = 'cn-beijing.log.aliyuncs.com'
 // 添加额外自定义数据
 function getExtraData() {
   return {
-    titile: document.title,
+    title: document.title,
     url: window.location.href,
     timestamp: Date.now(),
     userAgent: userAgent.parse(window.navigator.userAgent).full,
   }
 }
-
 
 class SendTracker {
   constructor() {
@@ -27,6 +26,7 @@ class SendTracker {
     let extraData = getExtraData()
     let logData = { ...extraData, ...data }
     console.log('log', logData)
+    return
     // 阿里云规定：对象的值不能是数字
     for (const key in logData) {
       if (
