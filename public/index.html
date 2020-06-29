@@ -6,9 +6,20 @@
   <title>前端监控</title>
 </head>
 <body>
-  <div id="testFMP" style="width: 500px; height: 500px; background-color: aliceblue;">testFMP</div>
+  <!-- 测试：timing -->
+  <!-- <div id="testFMP" style="width: 500px; height: 500px; background-color: aliceblue;">testFMP</div>
+  <script>
+    // 测试timing FMP
+    setTimeout(() => {
+      let h1 = document.createElement('h1')
+      h1.innerHTML = '有意义的内容'
+      h1.setAttribute('elementtiming', true)
+      document.getElementById('testFMP').appendChild(h1)
+    }, 2000);
+  </script> -->
+
   <div class="container">
-    <!-- js错误示例 -->
+    <!-- 测试：js error示例 -->
     <div class="content">
       <!-- <input 
         type="button" 
@@ -36,9 +47,9 @@
       <script src="somejs.js"></script> -->
     </div>
 
-    <!-- 接口错误示例 -->
-    <div id="test" class="content abc   ddd">
-      <input 
+    <!-- 测试：xhr错误示例 -->
+    <div id="test" class="content abc ddd">
+      <!-- <input 
         type="button" 
         value="ajax成功请求" 
         onclick="sendSuccess()"
@@ -73,17 +84,25 @@
           }
           xhr.send('name=fwl&age=27')
         }
-      </script>
+      </script> -->
     </div>
+
+    <!-- 测试：卡顿 -->
+    <!-- <button id="longTaskBtn">执行longTask</button>
+    <script>
+      let longTaskBtn = document.getElementById('longTaskBtn');
+      longTaskBtn.addEventListener('click', longTask);
+      function longTask() {
+        let start = Date.now();
+        console.log('longTask开始 start', start);
+        while (Date.now() < (200 + start)) { }
+        console.log('longTask结束 end', (Date.now() - start));
+      }
+    </script> -->
+  
+    
+  
   </div>
-  <script>
-    // 测试timing FMP
-    setTimeout(() => {
-      let h1 = document.createElement('h1')
-      h1.innerHTML = '有意义的内容'
-      h1.setAttribute('elementtiming', true)
-      document.getElementById('testFMP').appendChild(h1)
-    }, 2000);
-  </script>
+  
 </body>
 </html>
