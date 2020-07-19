@@ -25,7 +25,7 @@ class SendTracker {
   send(data = {}) {
     let extraData = getExtraData()
     let logData = { ...extraData, ...data }
-    console.log('log', logData)
+    // console.log('log', logData)
     return
     // 阿里云规定：对象的值不能是数字
     for (const key in logData) {

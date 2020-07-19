@@ -18,10 +18,10 @@
     }, 2000);
   </script> -->
 
+  <!-- 测试：js error示例 -->
   <div class="container">
-    <!-- 测试：js error示例 -->
-    <div class="content">
-      <!-- <input 
+    <!-- <div class="content">
+      <input 
         type="button" 
         value="点击抛出错误" 
         onclick="errorClick()"
@@ -35,6 +35,10 @@
       <script>
         function errorClick(e) {
           window.someVar.error = '1111'
+
+          // setTimeout(() => {
+          //   window.someVar.error = '1111'
+          // }, 1000);
         }
 
         function errorPromiseClick() {
@@ -44,10 +48,12 @@
           })
         }
       </script>
-      <script src="somejs.js"></script> -->
-    </div>
+      <script src="somejs.js"></script>
+    </div> -->
+  </div>
 
-    <!-- 测试：xhr错误示例 -->
+  <!-- 测试：xhr错误示例 -->
+  <div class="container">
     <div id="test" class="content abc ddd">
       <!-- <input 
         type="button" 
@@ -86,8 +92,10 @@
         }
       </script> -->
     </div>
+  </div>
 
-    <!-- 测试：卡顿 -->
+  <!-- 测试：卡顿 -->
+  <div class="container">
     <!-- <button id="longTaskBtn">执行longTask</button>
     <script>
       let longTaskBtn = document.getElementById('longTaskBtn');
@@ -99,10 +107,6 @@
         console.log('longTask结束 end', (Date.now() - start));
       }
     </script> -->
-  
-    
-  
   </div>
-  
 </body>
 </html>

@@ -8,6 +8,7 @@ export default function injectJsError() {
   window.addEventListener('unhandledrejection', promiseErrorHandler, true)
 
   function jsErrorHandler(evt) {
+    // console.log(evt)
     // 最后一个交互事件
     const lastEvent = getLastEvent()
      // console.log(lastEvent)
@@ -95,7 +96,7 @@ export default function injectJsError() {
 
 /**
  * 美化错误栈信息，去掉空白和at字符
- * @param {*} stack 
+ * @param {*} stack
  */
 function getLines(stack) {
   if (!stack) { return '' }
